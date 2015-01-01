@@ -38,7 +38,7 @@ def git_commit(msg=defalut_commit_message):
 def git_push():
     sh.run(cmd_git_push)
     if sh.code == 0:
-        print('√ push')
+        print('[√ push]')
         return True
     exit(sh.errors())
 
