@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-from shell import Shell
+from shell import Shell, CommandError
 import time
 import sys
 
@@ -15,12 +15,18 @@ cmd_git_push = 'git push origin gh-pages'
 sh = Shell()
 
 
+def error_exit(errors):
+    for line in errors:
+        print(line)
+    exit()
+
+
 def git_add():
     sh.run(cmd_git_add)
     if sh.code == 0:
         print('[√ add]')
         return True
-    exit(sh.errors())
+    error_exit(sh.errors())
 
 
 def git_commit(msg=defalut_commit_message):
@@ -32,15 +38,16 @@ def git_commit(msg=defalut_commit_message):
     if sh.code == 1:
         print(sh.output())
         return True
-    exit(sh.errors())
+    error_exit(sh.errors())
 
 
 def git_push():
     sh.run(cmd_git_push)
+
     if sh.code == 0:
         print('[√ push]')
         return True
-    exit(sh.errors())
+    error_exit(sh.errors())
 
 
 def main():
@@ -51,5 +58,11 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
-
+    try:
+        main()
+    except KeyboardInterrupt:
+        print('')
+        print('[× keyboard interrupt] ')
+    except CommandError as ce:
+        print('')
+        print('[' + ce.message + ']')
