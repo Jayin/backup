@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+"""
+自动git:add commit push
+"""
 
 from shell import Shell, CommandError
 import time
@@ -51,9 +54,15 @@ def git_push():
 
 
 def main():
+    #add -> commit
+    if len(sys.argv) > 1 and sys.argv[1] == 'commit':
+        git_add() and git_commit()
+        return
+    #push only
     if len(sys.argv) > 1 and sys.argv[1] == 'push':
         git_push()
         return
+    #add -> commit -> push
     git_add() and git_commit() and git_push()
 
 
