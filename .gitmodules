@@ -1,0 +1,3 @@
+[submodule "ComputerScience"]
+	path = ComputerScience
+	url = https://github.com/Jayin/ComputerScience.git
