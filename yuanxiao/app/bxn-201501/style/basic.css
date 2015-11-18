@@ -1,7 +1,0 @@
-
-/* pageLoad */
-#pageLoad{background:#e4d6c1;position:fixed;_position:absolute;left:0;right:0;top:0;bottom:0;z-index:999;}
-#pageLoad div{text-align:center;height:196px;width:250px;padding-left:0%;position:absolute;}
-#pageLoad a,#pageLoad samp{display:block;background:url(../image/loadbf.jpg) no-repeat center 0;height:100%;width:100%;position:absolute;z-index:0;left:0;top:0;}
-#pageLoad samp{z-index:1;overflow:hidden;width:0;}
-#pageLoad samp em{display:block; background:url(../image/loadaf.jpg) no-repeat 0 0;height:100%;width:100%;}
